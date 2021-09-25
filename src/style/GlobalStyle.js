@@ -12,7 +12,11 @@ export const GlobalStyle = createGlobalStyle`
     body{
        color: #333; 
        --type-first: Helvetica, Arial, sans-serif;
-       --type-second: 'Spectral', Georgia;
+       --type-second: 'Spectral', serif;
+    }
+    a{
+        color: #333;
+        text-decoration: none;
     }
     ol, ul, li {
         list-style: none;
@@ -29,5 +33,16 @@ export const GlobalStyle = createGlobalStyle`
     .container{
         padding: 0 1rem;
         margin: 0 auto;
+    }
+    .animeLeft{
+        opacity: 0;
+        transform: translateX(-30px);
+        animation: animeLeft .6s forwards;
+    }
+    @keyframes animeLeft{
+        to {
+            opacity: 1;
+            transform: initial;
+        }
     }
 `
