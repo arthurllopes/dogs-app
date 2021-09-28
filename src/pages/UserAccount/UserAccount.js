@@ -1,6 +1,13 @@
 import React from 'react'
 import { Navigate } from 'react-router'
 import { useSelector } from 'react-redux'
+import { Routes, Route } from 'react-router'
+import PageNotFound from '../PageNotFound/PageNotFound'
+import Feed from '../../Components/Feed/Feed'
+import UserStatus from '../../Components/UserStatus/UserStatus'
+import PhotoPost from '../../Components/PhotoPost/PhotoPost'
+import UserHeader from '../../Components/UserHeader/UserHeader'
+
 
 const UserAccount = () => {
     const {data} = useSelector(state => state.Login)
@@ -9,7 +16,14 @@ const UserAccount = () => {
     }
     return (
         <div style={{paddingTop: '4rem'}}>
-            conta
+
+            <UserHeader />
+            <Routes>
+                <Route path="/" element={<Feed user={data.id}/>} />
+                <Route path="/posts" element={<PhotoPost />} />
+                <Route path="/statistics" element={<UserStatus />} />
+                <Route path="*" element={ <PageNotFound /> } />
+            </Routes>
         </div>
     )
 }

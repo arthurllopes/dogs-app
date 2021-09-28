@@ -23,8 +23,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="login/*" element={ <Login /> } />
-        <ProtectedRoute path="profile/*" element={ <UserAccount /> } />
+        <Route path="login/*" element={ <Login /> }  />
+        <ProtectedRoute path="profile/*" element={ <UserAccount /> } page="/login" />
       </Routes>
       <Footer />
     </BrowserRouter>
