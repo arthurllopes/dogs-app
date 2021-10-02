@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
     position: fixed;
     z-index: 100;
     background-color: white;
+    padding: 0 8rem;
 
     nav{
         display: flex;

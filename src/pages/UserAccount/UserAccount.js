@@ -16,11 +16,10 @@ const UserAccount = () => {
     }
     return (
         <div style={{paddingTop: '4rem'}}>
-
             <UserHeader />
             <Routes>
                 <Route path="/" element={<Feed user={data.id}/>} />
-                <Route path="/posts" element={<PhotoPost />} />
+                <Route path="/post" element={<PhotoPost />} />
                 <Route path="/statistics" element={<UserStatus />} />
                 <Route path="*" element={ <PageNotFound /> } />
             </Routes>
