@@ -3,6 +3,7 @@ import { PHOTO_GET } from '../../api'
 import { ModalContainer } from './style'
 import useFetch from '../../Hooks/useFetch'
 import PhotoContent from '../../Fragments/PhotoContent/PhotoContent'
+import Loading from '../../Fragments/Loading'
 
 const PhotoModal = ({photo, setModalPhoto}) => {
     const {data, error, loading, request} = useFetch()
@@ -19,7 +20,7 @@ const PhotoModal = ({photo, setModalPhoto}) => {
   return (
     <ModalContainer onClick={handleOutsideClick}>
       {error && <p>{error}</p>}
-      {loading && <p>loading... </p>}
+      {loading && <Loading /> }
       {data && <PhotoContent data={data} />}
     </ModalContainer>
   )

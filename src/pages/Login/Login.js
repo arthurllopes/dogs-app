@@ -8,10 +8,11 @@ import PasswordReset from '../../Components/PasswordReset/PasswordReset'
 import SignUp from '../../Components/SignUp/SignUp'
 import PageNotFound from '../PageNotFound/PageNotFound'
 import { Container } from './style'
+import Loading from '../../Fragments/Loading'
 
 const Login = () => {
     const {data, loading} = useSelector(state => state.Login)
-    if(loading) return 'loading'
+    if(loading) return <Loading />
     if(data) return <Navigate to="/account" />
 
     return (

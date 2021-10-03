@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import useFetch from '../../Hooks/useFetch'
 import { PHOTO_GET } from '../../api'
 import PhotoContent from '../../Fragments/PhotoContent/PhotoContent'
+import Loading from '../../Fragments/Loading'
 
 const Photo = () => {
     const {id} = useParams()
@@ -14,7 +15,7 @@ const Photo = () => {
     }, [id, request])
 
     if(error) return <p>{error}</p>
-    if(loading) return <p>Loading..</p>
+    if(loading) return <Loading />
     if (data) return <section>
         <PhotoContent data={data} />
     </section>

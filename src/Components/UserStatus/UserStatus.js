@@ -1,6 +1,7 @@
 import React from 'react'
 import { STATS_GET } from '../../api'
 import useFetch from '../../Hooks/useFetch'
+import Loading from '../../Fragments/Loading'
 const StatsGraph = React.lazy(() => import ('../StatsGraph/StatsGraph'))
 
 const UserStatus = () => {
@@ -14,7 +15,7 @@ const UserStatus = () => {
         getData()
     }, [request])
 
-    if (loading) return <p>Loading..</p>;
+    if (loading) return <Loading />;
     if (error) return <p>{error}</p>
     if (data)
     return (
