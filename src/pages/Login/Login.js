@@ -8,7 +8,7 @@ import PasswordReset from '../../Components/PasswordReset/PasswordReset'
 import SignUp from '../../Components/SignUp/SignUp'
 import PageNotFound from '../PageNotFound/PageNotFound'
 import { Container } from './style'
-import Loading from '../../Fragments/Loading'
+import Loading from '../../Fragments/Loading/Loading'
 
 const Login = () => {
     const {data, loading} = useSelector(state => state.Login)

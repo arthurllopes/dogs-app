@@ -1,7 +1,6 @@
 import React from 'react'
 import { Wrapper, LoadingContent } from "./style";
 
-
 const Loading = () => {
     const [step, setStep] = React.useState(0);
     

@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import useFetch from '../../Hooks/useFetch'
 import { PHOTO_GET } from '../../api'
 import PhotoContent from '../../Fragments/PhotoContent/PhotoContent'
-import Loading from '../../Fragments/Loading'
+import Loading from '../../Fragments/Loading/Loading'
 
 const Photo = () => {
     const {id} = useParams()

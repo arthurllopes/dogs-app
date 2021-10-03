@@ -3,7 +3,7 @@ import { PHOTO_GET } from '../../api'
 import { ModalContainer } from './style'
 import useFetch from '../../Hooks/useFetch'
 import PhotoContent from '../../Fragments/PhotoContent/PhotoContent'
-import Loading from '../../Fragments/Loading'
+import Loading from '../../Fragments/Loading/Loading'
 
 const PhotoModal = ({photo, setModalPhoto}) => {
     const {data, error, loading, request} = useFetch()

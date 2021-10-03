@@ -3,7 +3,7 @@ import { PHOTOS_GET } from '../../api';
 import PhotoItem from '../../Fragments/PhotoItem/PhotoItem'
 import useFetch from '../../Hooks/useFetch';
 import { Container } from './style';
-import Loading from '../../Fragments/Loading'
+import Loading from '../../Fragments/Loading/Loading'
 
 const FeedPhotos = ({user, page, setModalPhoto, setInfinite}) => {
     const {data, loading, error, request} = useFetch();
