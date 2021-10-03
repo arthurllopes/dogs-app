@@ -48,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
     .App{
         display: flex;
         flex-direction: column;
-        min-height: calc(100vh + 10rem);
+        min-height: calc(100vh + 8rem);
     }
     .body{
         flex: 1;

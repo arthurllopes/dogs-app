@@ -40,17 +40,17 @@ const UserHeader = () => {
                     </MobileButton>
                 )}
                 <nav className={`${mobile? "menuMobile" : "menuDesktop"} ${mobileMenu && "active"}`}>
-                    <NavLink to="/profile" end>
+                    <NavLink to="/account" end>
                         <img src={feedImg} alt="Feed" />
                         {mobile && "Minhas fotos"}
                     </NavLink>
 
-                    <NavLink to="/profile/statistics">
+                    <NavLink to="/account/statistics">
                         <img src={statsImg} alt="Estatisticas" />
                         {mobile && "Estatísticas"}
                     </NavLink>
 
-                    <NavLink to="/profile/post">
+                    <NavLink to="/account/post">
                         <img src={addImg} alt="Adicionar" />
                         {mobile && "Adicionar"}
                     </NavLink>

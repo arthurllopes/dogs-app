@@ -13,7 +13,7 @@ const Header = () => {
                     <Dog />
                 </Link>
                 {data ? 
-                <Link to="/profile" className="login" >{data.nome}</Link>
+                <Link to="/account" className="login" >{data.nome}</Link>
                 :
                 <Link to="/login" className="login" >Log in | Sign Up</Link> 
             }

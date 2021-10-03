@@ -8,7 +8,6 @@ const PhotoModal = ({photo, setModalPhoto}) => {
     const {data, error, loading, request} = useFetch()
 
   React.useEffect(() => {
-    console.log('content:', photo)
     const {url, options} = PHOTO_GET(photo.id)
     request(url, options)
   }, [photo, request])

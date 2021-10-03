@@ -1,6 +1,7 @@
 import React from 'react'
 import FeedPhotos from '../FeedPhotos/FeedPhotos'
 import PhotoModal from '../PhotoModal/PhotoModal'
+import PropTypes from 'prop-types'
 
 const Feed = ({user}) => {
 
@@ -44,6 +45,14 @@ const Feed = ({user}) => {
           }
         </div>
     )
+}
+
+Feed.defaultProps = {
+  user: 0
+}
+
+Feed.prototype = {
+  user: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.number.isRequired])
 }
 
 export default Feed

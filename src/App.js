@@ -10,6 +10,8 @@ import {autoLogin} from './store/Login'
 import UserAccount from './pages/UserAccount/UserAccount';
 import ProtectedRoute from './pages/ProtectedRoute';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import Photo from './Components/Photo/Photo';
+import Profile from './Components/Profile/Profile';
 
 function App() {
 
@@ -27,8 +29,10 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home /> } />
             <Route path="login/*" element={ <Login /> }  />
-            <ProtectedRoute path="profile/*" element={ <UserAccount /> } page="/login" />
-            <Route path="*" element={ <PageNotFound /> } />
+            <Route path="profile/:user" element={ <Profile /> }  />
+            <ProtectedRoute path="account/*" element={ <UserAccount /> } page="/login" />
+            <Route path="photo/:id" element={ <Photo /> } />
+            <Route path="/*" element={ <PageNotFound /> } />
           </Routes>
         </main>
           

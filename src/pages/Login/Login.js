@@ -12,7 +12,7 @@ import { Container } from './style'
 const Login = () => {
     const {data, loading} = useSelector(state => state.Login)
     if(loading) return 'loading'
-    if(data) return <Navigate to="/profile" />
+    if(data) return <Navigate to="/account" />
 
     return (
         <>
