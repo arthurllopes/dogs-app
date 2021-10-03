@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import {autoLogin} from './store/Login'
 import UserAccount from './pages/UserAccount/UserAccount';
 import ProtectedRoute from './pages/ProtectedRoute';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 function App() {
 
@@ -20,13 +21,19 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="login/*" element={ <Login /> }  />
-        <ProtectedRoute path="profile/*" element={ <UserAccount /> } page="/login" />
-      </Routes>
-      <Footer />
+      <div className="App">
+        <Header />
+        <main className="body">
+          <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path="login/*" element={ <Login /> }  />
+            <ProtectedRoute path="profile/*" element={ <UserAccount /> } page="/login" />
+            <Route path="*" element={ <PageNotFound /> } />
+          </Routes>
+        </main>
+          
+        <Footer />
+      </div>
     </BrowserRouter>
       
   );

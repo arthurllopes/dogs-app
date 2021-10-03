@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Routes, Route, Navigate } from 'react-router'
+import Head from '../../Components/Head/Head'
 import LoginForm from '../../Components/LoginForm/LoginForm'
 import PasswordLost from '../../Components/PasswordLost/PasswordLost'
 import PasswordReset from '../../Components/PasswordReset/PasswordReset'
@@ -12,7 +13,10 @@ const Login = () => {
     const {data, loading} = useSelector(state => state.Login)
     if(loading) return 'loading'
     if(data) return <Navigate to="/profile" />
+
     return (
+        <>
+        <Head title="Login"/>
         <Container>
             <div className="routes">
                 <Routes>
@@ -24,6 +28,7 @@ const Login = () => {
                 </Routes>
             </div>
         </Container>
+        </>
     )
 }
 

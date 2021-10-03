@@ -7,6 +7,7 @@ import Feed from '../../Components/Feed/Feed'
 import UserStatus from '../../Components/UserStatus/UserStatus'
 import PhotoPost from '../../Components/PhotoPost/PhotoPost'
 import UserHeader from '../../Components/UserHeader/UserHeader'
+import Head from '../../Components/Head/Head'
 
 
 const UserAccount = () => {
@@ -16,6 +17,7 @@ const UserAccount = () => {
     }
     return (
         <div style={{paddingTop: '4rem'}}>
+            <Head title="Perfil" />
             <UserHeader />
             <Routes>
                 <Route path="/" element={<Feed user={data.id}/>} />

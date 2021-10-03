@@ -5,7 +5,6 @@ export const Container = styled.div`
     padding-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
     gap: 2rem;
 
 
