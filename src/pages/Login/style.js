@@ -6,6 +6,7 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
+    height: 100vh;
 
 
     &::before{
