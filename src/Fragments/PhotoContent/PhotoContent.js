@@ -5,9 +5,10 @@ import PhotoComments from '../PhotoComments/PhotoComments';
 import PhotoDelete from '../PhotoDelete/PhotoDelete';
 import {Attributes, Author, Container, Details, ImageContainer, Views} from "./style";
 
-const PhotoContent = ({data}) => {
-  const user = useSelector(state => state.Login)
-    const { photo, comments } = data;
+const PhotoContent = () => {
+    const user = useSelector(state => state.Login)
+    const { photo, comments } = useSelector(state => state.Photo.data);
+
     return (
         <Container>
         <ImageContainer>

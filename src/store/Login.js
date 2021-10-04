@@ -1,50 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { USER_GET } from "../api";
+import createAsyncSlice from "./helper/asyncSlice";
 import { fetchToken, resetTokenState} from "./Token";
 
-const slice = createSlice({
+const slice = createAsyncSlice({
     name: 'login',
-    initialState: {
-        data: null,
-        loading: false,
-        error: null
-    },
     reducers: {
-        fetchSuccess(state, action){
-            state.data = {...action.payload}
-        },
         resetUserState(state, action){
             state.data = action.payload
         },
-        fetchError(state, action){
-            state.error = `${action.payload}`
-            state.data = null
-        }
-    }
+    },
+    fetchConfig: (token) => USER_GET(token)
 })
 
-
-const {fetchSuccess, resetUserState, fetchError} = slice.actions
-
-export const fetchUser = (token) => async (dispatch) => {
-    const {url, options} = USER_GET(token)
-    const response = await fetch(url, options)
-    const data = await response.json()
-    if(response.ok) {
-        return dispatch(fetchSuccess(data))
-    } else {
-        return dispatch(fetchError('Dados incorretos'))
-    }
-}
+const fetchUser = slice.asyncAction
+const {resetUserState, fetchError} = slice.actions
 
 export const userLogin = (user) => async (dispatch) => {
     const {payload} = await dispatch(fetchToken(user))
-    console.log(payload)
     if(payload.token) {
         window.localStorage.setItem('token', payload.token)
-        await dispatch(fetchUser(payload.token))
-    } else {
-        dispatch(fetchError(payload))
+        return await dispatch(fetchUser(payload.token))
     }
 }
 
@@ -59,7 +34,6 @@ export const autoLogin = () => async (dispatch, getState) => {
     if (Token?.data) {
         const response = await dispatch((fetchUser(Token.data)))
         if(response.type === fetchError.type){
-
         }
     }
 }

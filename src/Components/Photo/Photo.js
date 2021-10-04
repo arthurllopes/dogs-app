@@ -1,23 +1,23 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import useFetch from '../../Hooks/useFetch'
-import { PHOTO_GET } from '../../api'
 import PhotoContent from '../../Fragments/PhotoContent/PhotoContent'
 import Loading from '../../Fragments/Loading/Loading'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchPhoto } from '../../store/Photo'
 
 const Photo = () => {
+    const dispatch = useDispatch()
+    const {error, loading, data} = useSelector(state => state.Photo)
     const {id} = useParams()
-    const {data, loading, error, request} = useFetch()
 
     React.useEffect(() => {
-        const {url, options} = PHOTO_GET(id)
-        request(url, options)
-    }, [id, request])
+        dispatch(fetchPhoto(id))
+    }, [id, dispatch])
 
     if(error) return <p>{error}</p>
     if(loading) return <Loading />
-    if (data) return <section>
-        <PhotoContent data={data} />
+    if (data) return <section style={{paddingTop: '4rem'}}>
+        <PhotoContent />
     </section>
     else return null
 }

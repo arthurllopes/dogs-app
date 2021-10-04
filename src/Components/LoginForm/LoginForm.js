@@ -9,7 +9,11 @@ import {FormContainer} from './style'
 
 
 const LoginForm = () => {
-    const {error, loading} = useSelector(state => state.Login)
+    const {Token, Login} = useSelector(state => state)
+
+    const loading = Token.loading || Login.loading
+    const error = Token.error || Login.error
+    
     const username = useForm()
     const password = useForm()
     const dispatch = useDispatch()
@@ -33,7 +37,7 @@ const LoginForm = () => {
                 :
                 <Button type="submit" >Entrar</Button>
                 }
-                {error && <p>Dados incorretos</p> }
+                {error && <p>{error}</p> }
             </form>
       
             <Link className="link" to='/login/lost'>Perdeu a senha?</Link>

@@ -1,27 +1,29 @@
 import React from 'react'
-import { PHOTO_GET } from '../../api'
 import { ModalContainer } from './style'
-import useFetch from '../../Hooks/useFetch'
 import PhotoContent from '../../Fragments/PhotoContent/PhotoContent'
 import Loading from '../../Fragments/Loading/Loading'
+import { useDispatch, useSelector } from 'react-redux'
+import {closeModal} from '../../store/Interface'
 
-const PhotoModal = ({photo, setModalPhoto}) => {
-    const {data, error, loading, request} = useFetch()
+const PhotoModal = () => {
+  const dispatch = useDispatch()
+  const {error, loading, data} = useSelector(state => state.Photo)
+  const {modal} = useSelector(state => state.Interface)
 
   React.useEffect(() => {
-    const {url, options} = PHOTO_GET(photo.id)
-    request(url, options)
-  }, [photo, request])
+    dispatch(closeModal())
+  }, [dispatch])
 
   function handleOutsideClick (event){
-    if (event.target === event.currentTarget) setModalPhoto(null)
+    if (event.target === event.currentTarget) dispatch(closeModal())
   }
 
+  if(!modal) return null
   return (
     <ModalContainer onClick={handleOutsideClick}>
       {error && <p>{error}</p>}
       {loading && <Loading /> }
-      {data && <PhotoContent data={data} />}
+      {!loading && data && <PhotoContent />}
     </ModalContainer>
   )
 }
