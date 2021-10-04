@@ -15,7 +15,7 @@ const UserStatus = () => {
         getData()
     }, [request])
 
-    if (loading) return <Loading />;
+    if (loading) return <Loading />
     if (error) return <p>{error}</p>
     if (data)
     return (
