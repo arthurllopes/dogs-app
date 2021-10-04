@@ -1,6 +1,5 @@
 import React from 'react'
 import useForm from '../../Hooks/useForm' 
-import { useSelector } from 'react-redux'
 import Button from '../../Fragments/Button/Button'
 import Input from '../../Fragments/Input/Input'
 import { Container } from './style'
